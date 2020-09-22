@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/handuy/jenkins-github.git'
+                git 'https://github.com/tuannx/golang-crud.git'
+				sh 'pwd'
             }
         }
     }
