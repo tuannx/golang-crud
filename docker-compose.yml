@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+#Postgre
+  db:
+    image: postgres:alpine
+    volumes:
+       - ./info.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  
+#Node
+  go:
+    build: .
+    depends_on:
+      - db
+    ports:
+        - "8081:8080"

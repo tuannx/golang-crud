@@ -1,0 +1,5 @@
+FROM postgres:alpine
+
+COPY info.sql .
+
+RUN psql -U postgres -f info.sql
