@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     stages {
         stage('Clone') {
             steps {
@@ -6,7 +7,7 @@ pipeline {
 				sh 'pwd'
             }
         }
-        stage('Clone') {
+        stage('Build') {
             steps {
 				agent any
 				// This step should not normally be used in your script. Consult the inline help for details.
