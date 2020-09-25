@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-				sshagent(['c622efd9-4b78-4fee-bcbe-1f9bc4f1b752']) {
+				sshagent(['sshroot']) {
 					sh 'ssh -o StrictHostKeyChecking=no -l root 209.182.237.42 touch test1.txt'
 				}
             }
