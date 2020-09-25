@@ -10,8 +10,7 @@ pipeline {
         stage('Deploy') {
             steps {
 				sshagent(['c622efd9-4b78-4fee-bcbe-1f9bc4f1b752']) {
-					sh 'touch test.txt'
-					sh 'docker-compose up -d'
+					sh 'ssh -o StrictHostKeyChecking=no -l root 209.182.237.42 touch test.txt'
 				}
             }
         }
