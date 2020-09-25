@@ -7,9 +7,12 @@ pipeline {
 				sh 'pwd'
             }
         }
-        stage('Build') {
+        stage('Deploy') {
             steps {
-				sh 'docker-compose up -d'
+				sshagent(['c622efd9-4b78-4fee-bcbe-1f9bc4f1b752']) {
+					touch test.txt
+					sh 'docker-compose up -d'
+				}
             }
         }
    }
